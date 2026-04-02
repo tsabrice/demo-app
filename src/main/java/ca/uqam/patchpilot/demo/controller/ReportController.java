@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.w3c.dom.Document;
 
+import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.ByteArrayInputStream;
@@ -39,8 +40,11 @@ public class ReportController {
 
     @PostMapping("/upload")
     public ResponseEntity<String> upload(@RequestBody String xmlPayload) throws Exception {
-        // VULNERABILITY: DocumentBuilderFactory created without disabling external entities
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        factory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
+        factory.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
+        factory.setXIncludeAware(false);
+        factory.setExpandEntityReferences(false);
         DocumentBuilder builder = factory.newDocumentBuilder();
         Document doc = builder.parse(
                 new ByteArrayInputStream(xmlPayload.getBytes(StandardCharsets.UTF_8)));
