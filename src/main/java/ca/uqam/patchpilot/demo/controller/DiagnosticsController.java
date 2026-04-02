@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.stream.Collectors;
 
@@ -33,7 +34,7 @@ import java.util.stream.Collectors;
 public class DiagnosticsController {
 
     @GetMapping("/ping")
-    public ResponseEntity<String> ping(@RequestParam String host) throws Exception {
+    public ResponseEntity<String> ping(@RequestParam String host) throws IOException {
         // VULNERABILITY: unsanitised user input passed to Runtime.exec()
         var process = Runtime.getRuntime().exec("ping -c 1 " + host);
         var output = new BufferedReader(new InputStreamReader(process.getInputStream()))
