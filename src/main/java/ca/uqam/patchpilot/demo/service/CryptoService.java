@@ -2,9 +2,13 @@ package ca.uqam.patchpilot.demo.service;
 
 import org.springframework.stereotype.Service;
 
+import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
+import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.KeyGenerator;
+import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
+import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 
 /**
@@ -24,7 +28,7 @@ import java.security.NoSuchAlgorithmException;
 public class CryptoService {
 
     // VULNERABILITY: DES is a broken algorithm — minimum acceptable is AES-128
-    public byte[] encrypt(byte[] data) throws Exception {
+    public byte[] encrypt(byte[] data) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
         KeyGenerator keyGen = KeyGenerator.getInstance("DES");
         SecretKey secretKey = keyGen.generateKey();
 
