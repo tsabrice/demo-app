@@ -1,0 +1,9 @@
+ca/uqam/patchpilot/demo/service/UserService.class
+ca/uqam/patchpilot/demo/config/AppConfig.class
+ca/uqam/patchpilot/demo/controller/FileController.class
+ca/uqam/patchpilot/demo/service/CryptoService.class
+ca/uqam/patchpilot/demo/DemoApplication.class
+ca/uqam/patchpilot/demo/controller/DiagnosticsController.class
+ca/uqam/patchpilot/demo/controller/UserController.class
+ca/uqam/patchpilot/demo/model/User.class
+ca/uqam/patchpilot/demo/controller/ReportController.class

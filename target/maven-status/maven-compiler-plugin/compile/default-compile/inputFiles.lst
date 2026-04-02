@@ -1,0 +1,9 @@
+/home/tsab30359808/Documents/Projects/patchpilot/demo-app/src/main/java/ca/uqam/patchpilot/demo/DemoApplication.java
+/home/tsab30359808/Documents/Projects/patchpilot/demo-app/src/main/java/ca/uqam/patchpilot/demo/config/AppConfig.java
+/home/tsab30359808/Documents/Projects/patchpilot/demo-app/src/main/java/ca/uqam/patchpilot/demo/controller/DiagnosticsController.java
+/home/tsab30359808/Documents/Projects/patchpilot/demo-app/src/main/java/ca/uqam/patchpilot/demo/controller/FileController.java
+/home/tsab30359808/Documents/Projects/patchpilot/demo-app/src/main/java/ca/uqam/patchpilot/demo/controller/ReportController.java
+/home/tsab30359808/Documents/Projects/patchpilot/demo-app/src/main/java/ca/uqam/patchpilot/demo/controller/UserController.java
+/home/tsab30359808/Documents/Projects/patchpilot/demo-app/src/main/java/ca/uqam/patchpilot/demo/model/User.java
+/home/tsab30359808/Documents/Projects/patchpilot/demo-app/src/main/java/ca/uqam/patchpilot/demo/service/CryptoService.java
+/home/tsab30359808/Documents/Projects/patchpilot/demo-app/src/main/java/ca/uqam/patchpilot/demo/service/UserService.java
