@@ -9,8 +9,11 @@ import org.w3c.dom.Document;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import org.xml.sax.SAXException;
 
 /**
  * XML report ingestion endpoint.
@@ -38,7 +41,7 @@ import java.nio.charset.StandardCharsets;
 public class ReportController {
 
     @PostMapping("/upload")
-    public ResponseEntity<String> upload(@RequestBody String xmlPayload) throws Exception {
+    public ResponseEntity<String> upload(@RequestBody String xmlPayload) throws ParserConfigurationException, IOException, SAXException {
         // VULNERABILITY: DocumentBuilderFactory created without disabling external entities
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
