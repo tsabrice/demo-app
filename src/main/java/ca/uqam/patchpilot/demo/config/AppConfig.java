@@ -1,5 +1,6 @@
 package ca.uqam.patchpilot.demo.config;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -19,8 +20,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class AppConfig {
 
-    // VULNERABILITY: password hard-coded as a string literal
-    private static final String INTEGRATION_PASSWORD = "sup3rS3cr3tP@ssw0rd"; // pragma: allowlist secret
+    @Value("${app.integration.password}")
+    private String integrationPassword;
 
     private static final String INTEGRATION_USER = "svc-integration";
 
@@ -29,6 +30,6 @@ public class AppConfig {
     }
 
     public String getIntegrationPassword() {
-        return INTEGRATION_PASSWORD;
+        return integrationPassword;
     }
 }
