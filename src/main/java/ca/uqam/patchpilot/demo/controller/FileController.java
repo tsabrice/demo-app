@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
 
 /**
@@ -32,7 +33,7 @@ public class FileController {
     private static final String BASE_DIR = "/var/app/exports/";
 
     @GetMapping("/download")
-    public ResponseEntity<byte[]> download(@RequestParam String filename) throws Exception {
+    public ResponseEntity<byte[]> download(@RequestParam String filename) throws IOException {
         // VULNERABILITY: user-controlled input used to construct a file path
         var file = new File(BASE_DIR + filename);
         return ResponseEntity.ok(Files.readAllBytes(file.toPath()));
