@@ -35,7 +35,7 @@ public class DiagnosticsController {
     @GetMapping("/ping")
     public ResponseEntity<String> ping(@RequestParam String host) throws Exception {
         // VULNERABILITY: unsanitised user input passed to Runtime.exec()
-        var process = Runtime.getRuntime().exec("ping -c 1 " + host);
+        var process = new ProcessBuilder("ping", "-c", "1", host).start();
         var output = new BufferedReader(new InputStreamReader(process.getInputStream()))
                 .lines()
                 .collect(Collectors.joining("\n"));
